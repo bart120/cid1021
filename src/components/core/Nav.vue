@@ -4,6 +4,9 @@
             <template #items>
                 <router-link :to="item.to">{{item.label}}</router-link>
             </template>
+            <template #end>
+                <router-link to="/login">Se connecter</router-link>
+            </template>
         </Menubar>
     </nav>
 </template>
