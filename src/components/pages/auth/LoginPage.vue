@@ -1,29 +1,43 @@
 <template>
     <h1>Connexion</h1>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" novalidate>
         <div>
-            <label>Login</label>
-            <br >
-            <InputText />
+            <InputMail label="Login" title="un titre" v-model="user.login" emptyColor="#FB335B" />
         </div>
-
+        <div>
+            <InputCid label="Mot de passe" type="password" v-model="user.password" />
+        </div>
         <div>
             <Button type="submit">Se connecter</Button>
         </div>
     </form>
 </template>
+
+
 <script>
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
+import InputCid from '../../core/input/InputCid.vue';
+import InputMail from '../../core/input/InputMail.vue';
 export default {
     components:{
         InputText,
-        Button
+        Button,
+        InputCid,
+        InputMail
     },
     methods:{
         submit(/*event*/){
             //event.preventDefault();
-            console.log('test');
+            console.log('test: ' + this.user.login);
+        }
+    },
+    data(){
+        return {
+            user: {
+                login: '',
+                password: ''
+            }
         }
     }
 }
