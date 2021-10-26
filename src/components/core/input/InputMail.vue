@@ -1,6 +1,8 @@
 <template>
-    <InputCid type="email" v-model="value"  />
-    
+    <InputCid type="email" v-model="value" v-bind="$attrs"  />
+    <p v-if="!valide" style="color:red;">
+        Adresse mail invalide
+    </p>
 </template>
 
 <script>
@@ -11,11 +13,24 @@ export default {
         InputCid
     },
     data(){
-        return{value: ''};
+        return{value: '', valide: true};
     },
+    watch:{
+        value(newVal, oldVal){
+            this.validate(newVal);
+        }
+    },
+    emits:['statusChange'],
     methods:{
         validate(mail){
-
+                if(mail != '' && ! regMail.test(mail)){
+                    //console.log('ERREUR');
+                    this.$emit('statusChange', false);
+                    this.valide = false;
+                    return;
+                }
+            this.valide = true;
+            this.$emit('statusChange', true);
         }
     }
 }
