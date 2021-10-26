@@ -5,7 +5,7 @@ import 'primevue/resources/themes/saga-blue/theme.css'
 import 'primeicons/primeicons.css'
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from './config/routes'
-
+import PrimeVue from "primevue/config";
 
 const router = createRouter({
     history: createWebHistory(),
@@ -14,4 +14,5 @@ const router = createRouter({
 
 createApp(App)
     .use(router)
+    .use(PrimeVue)
     .mount('#app')

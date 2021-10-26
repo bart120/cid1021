@@ -31,7 +31,7 @@ export default {
     methods:{
         submit(/*event*/){
             //event.preventDefault();
-            console.log('test: ' + this.user.login);
+            console.log('test: ', this.user);
         },
         mailChangeStatus(arg){
             console.log("statut: " + arg);
