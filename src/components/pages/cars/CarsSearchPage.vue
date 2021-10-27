@@ -3,6 +3,7 @@
     <div>
         <label>Marques: </label>
         <MultiSelect v-model="selectedCars" :options="brands" optionLabel="name" placeholder="Selection marque" />
+        <Button>Rechercher</Button>
     </div>
     <div>
 

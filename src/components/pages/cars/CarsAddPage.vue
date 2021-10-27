@@ -23,7 +23,7 @@
     </form>
 </template>
 <script>
-import Button from "primevue/button";
+//import Button from "primevue/button";
 import InputCid from "../../core/input/InputCid.vue";
 import Calendar from "primevue/calendar";
 import Dropdown from "primevue/dropdown";
@@ -33,7 +33,7 @@ import { brandsMixin } from '../../../mixins/BrandsMixin';
 
 export default {
     components:{
-        Button,
+        //Button,
         InputCid,
         Calendar,
         Dropdown
