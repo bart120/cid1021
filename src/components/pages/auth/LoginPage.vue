@@ -13,6 +13,7 @@
             <Button type="submit">Se connecter</Button>
         </div>
     </form>
+    <p>{{usr.name}}</p>
 </template>
 
 
@@ -32,6 +33,10 @@ export default {
         submit(/*event*/){
             //event.preventDefault();
             console.log('test: ', this.user);
+            //appel serveur
+            this.usr = {name: 'Bob', login: this.user.login, token: 'SGSFGDSFGGQSG', role:'admin'};
+            sessionStorage.setItem('USER', JSON.stringify(this.usr));
+
         },
         mailChangeStatus(arg){
             console.log("statut: " + arg);
@@ -42,7 +47,8 @@ export default {
             user: {
                 login: '',
                 password: ''
-            }
+            },
+            usr:{}
         }
     }
 }
