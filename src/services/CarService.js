@@ -8,3 +8,9 @@ export function insertCar(car) {
         return Promise.resolve(resp.data);
     });
 }
+
+export function getCars() {
+    return axios.get(URL).then(resp => {
+        return Promise.resolve(resp.data);
+    })
+}

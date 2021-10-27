@@ -2,7 +2,7 @@
     <h1>Rechercher une voiture</h1>
     <div>
         <label>Marques: </label>
-        <MultiSelect v-model="selectedCars" :options="brands" optionLabel="name" placeholder="Selection marque" />
+        <MultiSelect v-model="selectedBrands" :options="brands" optionLabel="name" placeholder="Selection marque" />
         <Button>Rechercher</Button>
     </div>
     <div>
@@ -18,10 +18,10 @@ export default {
     components:{
         MultiSelect
     },
-    mixins:[brandsMixin]
-    /*data(){
-        return {brands:[]};
-    },*/
+    mixins:[brandsMixin],
+    data(){
+        return {selectedBrands:[]};
+    },
     /*mounted(){
         getBrands().then(data =>{
             this.brands = data;
