@@ -15,7 +15,7 @@
         <div>
             <label>Marque</label>
             <br/>
-            <Dropdown />
+            <Dropdown v-model="car.brandID" :options="brands" option-label="name" option-value="id" />
         </div>
         <div>
             <Button type="submit">Enregistrer</Button>
@@ -27,7 +27,9 @@ import Button from "primevue/button";
 import InputCid from "../../core/input/InputCid.vue";
 import Calendar from "primevue/calendar";
 import Dropdown from "primevue/dropdown";
-import axios from 'axios';
+import {getBrands} from '../../../services/BrandService';
+import {insertCar} from '../../../services/CarService';
+import { brandsMixin } from '../../../mixins/BrandsMixin';
 
 export default {
     components:{
@@ -37,15 +39,26 @@ export default {
         Dropdown
     },
     data(){
-        return {car :{}};
+        return {car :{}/*, brands:[]*/};
     },
+    mixins:[
+        brandsMixin
+    ],
     methods:{
         submit(){
             console.log(this.car);
+            insertCar(this.car).then(data =>{
+                alert(`La voiture a été créée avec l'ID ${data.id}`);
+            });
         }
     },
     mounted(){
-        axios.get('https://formation.inow.fr/demo/api/v1/brands');
+        /*getBrands().then(data =>{
+            this.brands = data;
+        }).catch(err =>{
+            alert(err.message);
+        });*/
+        alert("mounted");
     }
 }
 </script>
