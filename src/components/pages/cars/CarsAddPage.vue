@@ -27,7 +27,7 @@ import Button from "primevue/button";
 import InputCid from "../../core/input/InputCid.vue";
 import Calendar from "primevue/calendar";
 import Dropdown from "primevue/dropdown";
-import {getBrands} from '../../../services/BrandService';
+//import {getBrands} from '../../../services/BrandService';
 import {insertCar} from '../../../services/CarService';
 import { brandsMixin } from '../../../mixins/BrandsMixin';
 
@@ -58,7 +58,7 @@ export default {
         }).catch(err =>{
             alert(err.message);
         });*/
-        alert("mounted");
+        console.log("mounted");
     }
 }
 </script>
